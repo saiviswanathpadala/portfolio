@@ -51,6 +51,7 @@
           <div class="text-3">And I'm a <span class="typing"></span></div>
           <a
             href="mailto:padalasaiviswanath@gmail.com"
+            id="hire-me-link"
             target="_blank"
             rel="noopener noreferrer"
             style="text-decoration: none"
@@ -215,7 +216,7 @@
             <a
               href="https://www.linkedin.com/in/padalasaiviswanath/"
               target="_blank"
-              style="text-decoration: none;"
+              style="text-decoration: none"
               >Linkedin</a
             >
           </div>
@@ -573,11 +574,13 @@
 
                   const form = event.target;
                   if (form.checkValidity()) {
-                    alert("Thankyou!!, Message sent successfully to SaiViswanath 😊📧");
+                    alert(
+                      "Thankyou!!, Message sent successfully to SaiViswanath 😊📧"
+                    );
                     // Clear input fields
                     form.reset();
                     // Redirect to home page (replace 'index.html' with your actual home page URL)
-                   // window.location.href = "index.html";
+                    // window.location.href = "index.html";
                   } else {
                     alert("Please fill all required fields.");
                   }
@@ -644,6 +647,24 @@
           1000: { items: 5 },
         },
       });
+
+      document
+        .getElementById("hire-me-link")
+        .addEventListener("click", function (event) {
+          if (
+            !navigator.userAgent.match(
+              /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+            )
+          ) {
+            // For non-mobile devices, redirect to Gmail compose if `mailto:` fails
+            event.preventDefault();
+            window.open(
+              "https://mail.google.com/mail/?view=cm&fs=1&to=padalasaiviswanath@gmail.com",
+              "_blank",
+              "noopener noreferrer"
+            );
+          }
+        });
     </script>
   </body>
 </html>
